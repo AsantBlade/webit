@@ -1,0 +1,101 @@
+<section>
+    <h2>Simulación de arranque</h2>
+    <p>Sigue los pasos en orden para simular el encendido correcto de la impresora.</p>
+
+    <!-- STEPPER -->
+    <div class="stepper">
+        <div class="step active" id="step-0">
+            <div class="step-circle">1</div>
+            <span>Apagada</span>
+        </div>
+        <div class="step-line" id="line-0"></div>
+        <div class="step" id="step-1">
+            <div class="step-circle">2</div>
+            <span>Encendida</span>
+        </div>
+        <div class="step-line" id="line-1"></div>
+        <div class="step" id="step-2">
+            <div class="step-circle">3</div>
+            <span>Calentando</span>
+        </div>
+        <div class="step-line" id="line-2"></div>
+        <div class="step" id="step-3">
+            <div class="step-circle">4</div>
+            <span>Imprimiendo</span>
+        </div>
+    </div>
+
+    <!-- PANEL PRINCIPAL -->
+    <div class="info-box sim-container" id="sim-panel">
+
+        <!-- SVG IMPRESORA -->
+        <div class="printer-svg-wrap">
+            <svg id="printer-svg" viewBox="0 0 260 220" xmlns="http://www.w3.org/2000/svg">
+                <!-- Base / cuerpo -->
+                <rect x="30" y="110" width="200" height="90" rx="8"
+                    fill="#111c30" stroke="#1e3a5f" stroke-width="1.5"/>
+                <!-- Panel frontal -->
+                <rect x="50" y="125" width="80" height="60" rx="4"
+                    fill="#0a0f1e" stroke="#1e3a5f" stroke-width="1"/>
+                <!-- Pantalla -->
+                <rect x="56" y="131" width="68" height="30" rx="3"
+                    id="screen" fill="#0a0f1e" stroke="#1e3a5f" stroke-width="1"/>
+                <text x="90" y="150" text-anchor="middle"
+                    font-family="'Oxanium', monospace" font-size="8"
+                    id="screen-text" fill="#475569">OFFLINE</text>
+                <!-- Botón power -->
+                <circle cx="160" cy="148" r="10"
+                    id="power-btn" fill="#111c30" stroke="#1e3a5f" stroke-width="1.5"/>
+                <text x="160" y="152" text-anchor="middle"
+                    font-size="10" fill="#475569" id="power-icon">⏻</text>
+                <!-- Luz indicadora -->
+                <circle cx="190" cy="135" r="5" id="led" fill="#1e293b"/>
+                <!-- Barra calefacción -->
+                <rect x="50" y="192" width="160" height="5" rx="2"
+                    fill="#0a0f1e" stroke="#1e3a5f" stroke-width="1"/>
+                <rect x="50" y="192" width="0" height="5" rx="2"
+                    id="heat-bar" fill="#f59e0b"/>
+                <!-- Marcos verticales -->
+                <rect x="20" y="30" width="12" height="125" rx="4"
+                    fill="#111c30" stroke="#1e3a5f" stroke-width="1.5"/>
+                <rect x="228" y="30" width="12" height="125" rx="4"
+                    fill="#111c30" stroke="#1e3a5f" stroke-width="1.5"/>
+                <!-- Barra horizontal superior -->
+                <rect x="20" y="28" width="220" height="12" rx="4"
+                    fill="#111c30" stroke="#1e3a5f" stroke-width="1.5"/>
+                <!-- Eje X -->
+                <rect x="32" y="54" width="196" height="8" rx="3"
+                    fill="#0d1525" stroke="#1e3a5f" stroke-width="1"/>
+                <!-- Cabezal -->
+                <rect id="head" x="100" y="50" width="30" height="18" rx="3"
+                    fill="#1e3a5f" stroke="#38bdf8" stroke-width="1"/>
+                <!-- Boquilla -->
+                <polygon id="nozzle" points="115,68 110,78 120,78"
+                    fill="#1e3a5f" stroke="#38bdf8" stroke-width="1"/>
+                <!-- Cama -->
+                <rect x="50" y="100" width="160" height="10" rx="3"
+                    id="bed" fill="#111c30" stroke="#1e3a5f" stroke-width="1.5"/>
+                <!-- Objeto impreso -->
+                <rect id="objeto" x="95" y="100" width="0" height="0" rx="2"
+                    fill="#38bdf8" opacity="0.7"/>
+                <!-- Filamento -->
+                <line id="filamento" x1="115" y1="78" x2="115" y2="78"
+                    stroke="#38bdf8" stroke-width="2" stroke-dasharray="3,2"/>
+            </svg>
+        </div>
+
+        <!-- ESTADO -->
+        <p id="estado" class="sim-estado">Estado: Apagada</p>
+
+        <!-- ERROR -->
+        <p id="sim-error" class="sim-error"></p>
+
+        <!-- BOTONES -->
+        <div class="sim-btns">
+            <button onclick="encender()">⚡ Encender</button>
+            <button onclick="calentar()">🌡 Calentar</button>
+            <button onclick="imprimir()">🖨 Imprimir</button>
+            <button onclick="resetSim()" class="btn-reset">↺ Reiniciar</button>
+        </div>
+    </div>
+</section>

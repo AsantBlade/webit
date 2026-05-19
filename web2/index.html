@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centro de Talento Micah</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="simulacion.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    
+</head>
+<body>
+
+<header>
+    <h1>Centro de Talento Micah</h1>
+    <p>Capacitación técnica para impresoras 3D</p>
+    <nav>
+        <button onclick="cargarSeccion('inicio')">Inicio</button>
+        <button onclick="cargarSeccion('capacitacion')">Capacitación</button>
+        <button onclick="cargarSeccion('simulacion')">Simulación</button>
+          <button onclick="cargarSeccion('simulaci')">Resultados de capacitacion</button>
+    </nav>
+</header>
+
+<main id="contenido">
+    <p>Cargando...</p>
+</main>
+
+<!-- CHATBOT -->
+<div id="chatbot">
+    <div id="chat-header" onclick="toggleChat()">Soporte 🤖</div>
+    <div id="chat-body">
+        <div id="chat-mensajes"></div>
+        <input type="text" id="chat-input"
+            placeholder="Escribe tu duda..."
+            onkeypress="if(event.key==='Enter') enviarMensaje()">
+        <button onclick="enviarMensaje()">Enviar</button>
+    </div>
+</div>
+
+<footer>
+    <div class="footer-content">
+        <h3>Centro de Talento Micah</h3>
+        <p>Capacitación técnica en instalación de impresoras 3D</p>
+        <p>📧 soporte@micah.com</p>
+        <p>📍 Ciudad de México</p>
+        <p class="copy">© 2026 Micah - Todos los derechos reservados</p>
+    </div>
+</footer>
+<script src="app.js"></script>
+<script src="simulacion.js"></script>
+</body>
+</html>
